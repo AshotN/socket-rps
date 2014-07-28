@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "express": "~4.4",
+    "jade": "~1.3",
+    "coffee-script": "~1.7",
+    "socket.io": "~1.0",
+    "mysql": "~2.3.2",
+    "express-session": "~1.5.1",
+    "body-parser": "~1.4.3",
+    "json-web-token": "~1.0"
+  },
+  "scripts": {
+    "start": "server.coffee"
+  },
+  "name": "Rock-Paper-Scissor",
+  "version": "0.0.1",
+  "main": "server.coffee",
+  "author": "Hego555"
+}

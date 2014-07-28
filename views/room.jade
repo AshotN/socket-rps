@@ -1,0 +1,40 @@
+doctype html
+html
+	head
+		title Index
+		script(src='/socket.io/socket.io.js')
+		script(src='//code.jquery.com/jquery-1.11.0.min.js')
+		script(src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/sha512.js")
+		script(src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js")
+		script(src='js/room.js')
+		link(href='css/css.css' rel='stylesheet' type='text/css')
+
+		if user
+			script.
+				var user = "#{user}"
+				var token = "#{token}"
+
+
+	body
+		if !user
+			span Please Log In!!!
+
+		#back
+			header
+				.headermessage 
+						if user
+							|Welcome #{user}
+						else
+							|Login
+			#main
+				.container
+					.enemyis Your Opponent Is: Waiting
+					.buttondiv
+						button.ready Ready
+					br
+					.you
+						.yourname #{user}
+							.youready Not Ready
+					.enemy
+						.enemyname Waiting
+							.enemyready Not Ready
