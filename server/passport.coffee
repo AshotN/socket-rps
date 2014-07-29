@@ -11,7 +11,7 @@ User = db.models.User
 handleFunction = (token, tokenSecret, profile, cb) ->
   console.log profile
 
-  User.findOne {username:profile.username}, (err, user) ->
+  User.findOne {id: profile.id}, (err, user) ->
     console.log err if err?
     return cb err if err?
     profileUpdate =
@@ -35,8 +35,6 @@ strategy = new FacebookStrategy
   clientSecret: config.facebook.clientSecret
   callbackURL: config.facebook.callback
 , handleFunction
-
-passport.use strategy
 
 passport.use strategy
 

@@ -5,7 +5,7 @@ db = require "./db"
 
 
 app.get "/", (req, res) ->
-  #return res.redirect "/login" unless req.user?
+  return res.redirect "/login" unless req.user?
 
   res.render "index", user: req.user, title: config.title
 
