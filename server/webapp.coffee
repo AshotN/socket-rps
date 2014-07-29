@@ -5,12 +5,14 @@ db = require "./db"
 
 
 app.get "/", (req, res) ->
-  return res.redirect "/login" unless req.user?
+  return res.redirect "/login" unless req.user? #Not Logged in
+  return res.redirect "/setup" unless req.user.username? #Username not set
 
   res.render "index", user: req.user, title: config.title
 
-app.get "/search", (req, res) ->
-  res.render "search", title: config.title
+app.get "/setup", (req, res) ->
+  return res.redirect "/" if req.user.username?
+  res.render "setup"
 
 app.get "/logout", (req, res) ->
   req.logout()
@@ -24,4 +26,4 @@ app.get "/login", (req, res) ->
 # Passport auth routes
 app.get "/auth/facebook", passport.authenticate "facebook", scope: ["email"]
 app.get "/auth/facebook/callback",
-  passport.authenticate "facebook", {successRedirect:"/", falureRedirect:"/login"}
+  passport.authenticate "facebook", {successRedirect:"/setup", falureRedirect:"/login"}

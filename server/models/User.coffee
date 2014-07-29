@@ -1,6 +1,10 @@
 mongoose = require "mongoose"
 
 User = new mongoose.Schema
+
+  username:
+    type: String
+    unique: true
   id:
     type: String
     required: true

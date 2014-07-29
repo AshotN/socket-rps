@@ -1,11 +1,13 @@
 io = require "socket.io"
+cookieParser = require 'cookie-parser'
+db = require "./db"
 config = require "./config"
 server = require "./httpserver"
-cookieParser = require 'cookie-parser'
 sessionStore = require './sessionstore'
 passportSocketIO = require 'passport.socketio'
 io = io.listen server
 
+User = db.models.User
 
 io.set 'authorization', passportSocketIO.authorize
   cookieParser: cookieParser
@@ -22,3 +24,16 @@ io.set 'authorization', passportSocketIO.authorize
 
 io.sockets.on "connection", (socket) ->
   console.log "socket connected"
+  socket.email = socket.request.user.email
+
+  socket.on "setup-user", (data) ->
+    User.update {email: socket.email}, {username: data.username}, (err, user) ->
+      return socket.emit "setup-result", {error: "username taken"} if err?
+      socket.emit "setup-result", {success: true}
+
+  socket.on "dummy", ->
+    console.log "I GOT IT DUMMY"
+
+
+
+

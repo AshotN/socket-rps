@@ -18,7 +18,7 @@ handleFunction = (token, tokenSecret, profile, cb) ->
       email: profile._json.email
       id: String profile._json.id
       name: profile._json.name
-      image: "https://graph.facebook.com/#{profile._json.username}/picture"
+      #image: "https://graph.facebook.com/#{profile._json.username}/picture"
       provider: "facebook"
     if user?
       user.set profileUpdate
