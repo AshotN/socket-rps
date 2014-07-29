@@ -11,3 +11,70 @@ body {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
+a {
+  text-decoration: none;
+  color: #000;
+}
+a:hover {
+  text-decoration: underline;
+}
+.button {
+  background: #bfbfbf;
+  border: none;
+  box-shadow: 0 0 2px #555;
+  padding: 10px;
+  text-align: center;
+}
+.button.blue {
+  background: #2980b9;
+  color: #fff;
+}
+.button.red {
+  background: #c0392b;
+  color: #fff;
+}
+.button.green {
+  background: #27ae60;
+  color: #fff;
+}
+.header {
+  width: 100%;
+  height: 75px;
+  background: #fff;
+  box-shadow: 0 0 2px #cdcdcd;
+  padding: 25px;
+}
+.header .title {
+  font-size: 25px;
+}
+.boxes {
+  text-align: center;
+}
+.boxes .box {
+  width: 50%;
+  display: inline-block;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 0 2px #cdcdcd;
+}
+.spacer {
+  height: 100px;
+}
+.spacer-50 {
+  height: 50px;
+}
+.spacer-200 {
+  height: 200px;
+}
+input {
+  border: 1px solid #dedede;
+  padding: 10px;
+  background: #fff;
+}
+.main {
+  width: 100%;
+}
+.main .content {
+  width: 80%;
+  margin-left: 10%;
+}

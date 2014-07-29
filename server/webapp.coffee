@@ -12,11 +12,11 @@ app.get "/", (req, res) ->
 
 app.get "/setup", (req, res) ->
   return res.redirect "/" if req.user.username?
-  res.render "setup"
+  res.render "setup", title: config.title
 
 app.get "/logout", (req, res) ->
   req.logout()
-  res.redirect "/"
+  res.redirect "/", title: config.title
 
 app.get "/login", (req, res) ->
   #return res.redirect "/" if req.user?
@@ -26,4 +26,4 @@ app.get "/login", (req, res) ->
 # Passport auth routes
 app.get "/auth/facebook", passport.authenticate "facebook", scope: ["email"]
 app.get "/auth/facebook/callback",
-  passport.authenticate "facebook", {successRedirect:"/setup", falureRedirect:"/login"}
+  passport.authenticate "facebook", {successRedirect: "/setup", falureRedirect: "/login"}

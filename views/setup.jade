@@ -2,11 +2,22 @@ doctype html
 html
   include ./head
 
-
   body
-    input.setup-user(type="text")
-    button.setup-button Save
-    //Dev purposes, to test interface
-    input.check(type="checkbox")
-    | Apply?
-    .message
+    .main
+      .header
+        .title #{title}
+      .content
+
+        .spacer-200
+        .boxes
+          .box
+            h3 Please Enter Your Username
+            br
+            input.setup-user(type="text" placeholder="Username")
+            .spacer-50
+            //Dev purposes, to test interface
+            input.check(type="checkbox")
+            | Apply?
+            .spacer-50
+            button.button.setup-button.green Save
+            .message
