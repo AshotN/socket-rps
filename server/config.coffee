@@ -1,7 +1,7 @@
 module.exports =
   port: 5555
   name: "my game"
-  title: "game title"
+  title: "RPS"
   session:
     secret: "epicsecret"
     key: "rpsgame.sid"

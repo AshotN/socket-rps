@@ -10,6 +10,10 @@ app.get "/", (req, res) ->
 
   res.render "index", user: req.user, title: config.title
 
+app.get "/room", (req, res) ->
+  return res.redirect "/login" unless req.user? #Not Logged in
+  res.render "room", title: config.title, user: req
+
 app.get "/setup", (req, res) ->
   return res.redirect "/" if req.user.username?
   res.render "setup", title: config.title

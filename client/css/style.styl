@@ -1,16 +1,19 @@
 // colors
 light-grey = #efefef
+@import "./includes/reset"
+@import "./includes/font-neue"
 
 body
+  @extend .font-neue
   background light-grey
 
-
-@import "./includes/reset"
+@import "./includes/colors"
 @import "./includes/buttons"
 @import "./includes/header"
 @import "./includes/boxes"
 @import "./includes/extras"
 @import "./includes/inputs"
+@import "./includes/message"
 
 .main
   width 100%

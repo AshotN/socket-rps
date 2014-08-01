@@ -5,10 +5,39 @@ html
     .main
       .header
         .title #{title}
+      .spacer-75
+        .message
       .content
         h1 test
         .boxes
           .box
             p #{user}
+          .box
+            br
+            h1 Join Room
+            br
+            input.join-room(type="text" placeholder="Room ID")
+
+            .button.green.inline-block.wide.join-button Join
+            .spacer-50
+            .line
+            .spacer-50
+
+            h1 Or
+            br
+            .button.blue.inline-block.wide.create-button Create Room
+            br
+            br
+            .create
+              input.create-room(type="text" placeholder="Room Name")
+              br
+              br
+              input.create-room-password(type="password" placeholder="Password")
+              br
+              br
+              .button.green.inline-block.create-room-button Save
+
+            .spacer-50
+
 
 

@@ -1,13 +1,25 @@
 $(document).ready(function(){
   socket = io.connect();
 
-  socket.emit('ready', {test: true});
-  setTimeout(function(){
-    socket.emit('test', {test: true});
-  }, 2000);
+  $('.message').hide();
+
+  socket.on('message', function(data){
+    var el = $('.message');
+    if (data.error){
+      el.addClass('error');
+    }
+    el.fadeIn()
+      .text(data.message)
+      .fadeOut(2000);
+  });
+  //Get to your room NOW
+  socket.on('room-created', function(data){
+    window.location.replace("/room");
+  });
+
 
   $('.setup-button').click(function(){
-    val = $('.setup-user').val();
+    var val = $('.setup-user').val();
     console.log($(".check").is(":checked"));
     if($(".check").is(":checked")){
       socket.emit('setup-user', {username: val});
@@ -28,4 +40,31 @@ $(document).ready(function(){
       }, 2000);
     }
   });
+
+  // Join room
+  $('.join-button').click(function(){
+    var val = $('.join-room').val();
+    if (val.length < 4){
+      $('.message').fadeIn()
+        .addClass('error')
+        .text('Error: Room ID is required')
+        .fadeOut(2000);
+    }
+    else{
+      socket.emit('join-room', {roomid: val});
+    }
+  });
+
+  $('.create-button').click(function(){
+    $('.create').slideToggle(500);
+    $('.create-button').toggleClass('active');
+  });
+
+  $('.create-room-button').click(function(){
+    var name = $('.create-room').val();
+    var pass = $('.create-room-password').val();
+    socket.emit('create-room', {name: name, pass: pass});
+  });
+
+
 });

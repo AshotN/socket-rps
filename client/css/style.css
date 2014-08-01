@@ -1,6 +1,3 @@
-body {
-  background: #efefef;
-}
 * {
   margin: 0;
   padding: 0;
@@ -18,24 +15,63 @@ a {
 a:hover {
   text-decoration: underline;
 }
+@font-face {
+  font-family: 'neue';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Neue'), local('Neue'), url("/fonts/neue.woff") format('woff');
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.font-neue,
+body {
+  font-family: 'Neue';
+}
+body {
+  background: #efefef;
+}
 .button {
+  max-width: 200px;
   background: #bfbfbf;
   border: none;
   box-shadow: 0 0 2px #555;
   padding: 10px;
   text-align: center;
+  cursor: pointer;
+  font-weight: bold;
+}
+.button:active {
+  box-shadow: 0 0 2px #222;
+}
+.button:hover {
+  background: #acacac;
+}
+.button.wide {
+  max-width: 300px;
+  padding: 10px 30px 10px 30px;
 }
 .button.blue {
   background: #2980b9;
   color: #fff;
 }
+.button.blue:hover {
+  background: #2573a7;
+}
 .button.red {
   background: #c0392b;
   color: #fff;
 }
+.button.red:hover {
+  background: #ad3327;
+}
 .button.green {
   background: #27ae60;
   color: #fff;
+}
+.button.green:hover {
+  background: #239d56;
 }
 .header {
   width: 100%;
@@ -47,11 +83,28 @@ a:hover {
 .header .title {
   font-size: 25px;
 }
+.center {
+  text-align: center;
+}
 .boxes {
   text-align: center;
 }
 .boxes .box {
   width: 50%;
+  margin: 20px;
+  display: inline-block;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 0 2px #cdcdcd;
+}
+.boxesnext {
+  text-align: center;
+  display: flex;
+  height: 400px;
+}
+.boxesnext .box {
+  width: 50%;
+  margin: 20px;
   display: inline-block;
   padding: 20px;
   background: #fff;
@@ -63,13 +116,45 @@ a:hover {
 .spacer-50 {
   height: 50px;
 }
+.spacer-75 {
+  height: 75px;
+  overflow: hidden;
+}
 .spacer-200 {
   height: 200px;
+}
+.inline-block {
+  display: inline-block;
+}
+.line {
+  width: 80%;
+  margin-left: 10%;
+  height: 1px;
+  background: #bebebe;
+  box-shadow: 0 0 1px #cdcdcd;
+}
+.create {
+  display: none;
+}
+.create-button.active {
+  box-shadow: 0 0 1px #000 inset;
 }
 input {
   border: 1px solid #dedede;
   padding: 10px;
   background: #fff;
+}
+.message {
+  background: #cdcdcd;
+  padding: 10px;
+  width: 80%;
+  margin: 20px 10%;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+}
+.message.error {
+  background: #e74c3c;
 }
 .main {
   width: 100%;

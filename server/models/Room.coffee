@@ -1,9 +1,11 @@
 mongoose = require "mongoose"
 
-Room = new mongoose.schema
-  number:
+Room = new mongoose.Schema
+
+  roomid:
     type: String
     required: true
+    unique: true
   name:
     type: String
     default: "Room name"
